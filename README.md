@@ -1,19 +1,45 @@
-# -Dynamic-Price-Prediction-for-Airline-Tickets-Using-PySpark-and-Gradient-Boosting-
 
+<h1 align="center">✈️ Dynamic Price Prediction for Airline Tickets</h1>
+<p align="center">
+  <em>Scalable Airline Ticket Price Forecasting Using PySpark and Gradient Boosting</em>
+</p>
 
-# REPO Structure:
-├──EDA.ipynb  # Exploratory Data Analysis with visual insights
-├── Normal_GradientBoosting.ipynb   # Pandas + Scikit-learn pipeline
-├── PySpark_GradientBoosting.ipynb  # PySpark MLlib pipeline
-├── README.md
+<p align="center">
+  <img src="https://img.shields.io/badge/Machine%20Learning-XGBoost-green?style=flat-square" />
+  <img src="https://img.shields.io/badge/Big%20Data-PySpark-blue?style=flat-square" />
+  <img src="https://img.shields.io/badge/Language-Python%203.8+-yellow?style=flat-square" />
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square" />
+</p>
 
-# Objective
+---
 
-The purpose of this project is to create a machine learning model that can utilize Gradient Boosting to 
-predict flight ticket prices and evaluate the model performance with PySpark and without
+##  Table of Contents
 
-# ABSTRACT 
- 
+- [ Objective]
+- [ Abstract]
+- [ Importance of Flight Price Prediction]
+- [Dataset Description]
+- [ Data Attributes]
+- [ Data Processing & Transformation]
+- [ Experimentation Setup]
+- [ Experimental Procedure]
+- [ Model Performance Metrics]
+- [Conclusion]
+- [ Repository Structure]
+- [🔗 Dataset Link](https://www.kaggle.com/datasets/shubhambathwal/flight-price-prediction)
+
+---
+
+##  Objective
+
+Build a machine learning pipeline that leverages **Gradient Boosting (XGBoost)** for predicting dynamic airline ticket prices. Compare scalability and accuracy between **PySpark-based** and **Scikit-learn-based** implementations.
+
+---
+
+##  Abstract
+
+The airline industry relies on **dynamic pricing** to maximize revenue. Traditional models like Random Forests often struggle with large datasets and scalability.
+
 The airline industry tends to depend on dynamic pricing for revenue maximization in response to 
 demand. Predicting flight ticket prices traditionally employs machine learning techniques, including 
 Random Forest, Gradient Boosting Trees, and Decision Trees. However, these techniques often fail to 
@@ -21,118 +47,151 @@ appropriately and efficiently model large-scale volume data while providing a me
 predictive accuracy. In this study, we present our Scalable Dynamic Pricing Model via Extreme 
 Gradient Boosting (XGBoost) solving the problems with two configurations: a configuration with 
 distributed processing using PySpark and the other configuration for baseline comparison without 
-PySpark.  
- 
-Experimental results reveal that XGBoost without PySpark provides a commendable R² score of 
-0.9786—a score much higher than those achieved from conventional methods like Random Forest 
-(R²=0.728). Meanwhile, running the PySpark enables distributed computing, which brings the R² score 
-to an even higher level of 0.9954, alongside increased speed and scalability. The use of PySpark 
-ensures that large volumes of data can be dealt with efficiently while at the same time reducing 
-computational time, making this model an ideal candidate for real-life deployment in the airline 
-industry. 
- 
-Moreover, taking into consideration not just predictive performance, we add an integer pricing module 
-whose core function is to adjust prices based on demand; it factors in inputs such as seasonality and 
-competition-based decisions on current pricing, making it therefore even more competitive from the 
-point of view of the airline.  
- 
-Additionally, the proposed PySpark-based XGBoost model outperforms the existing machine learning 
-approaches for both accuracy and scalability. It constitutes a viable, scalable, and high-performance 
-alternative for dynamic pricing in the airline sector, having a great avenue to improve revenue 
-management systems through predictive analytics and big data technologies.
+PySpark. 
 
 
-# Importance of Flight Price Prediction 
-Accurate flight price prediction helps various stakeholders in a range of ways: 
-⚫ Passengers: It helps travelers understand the best times to purchase their flights and makes price 
-trends accessible. Passengers can ultimately make the most well-informed and money-saving 
-decisions. 
-⚫ Travel Agencies: It provides a way for travel agencies to recommend the best time for their 
-customers to purchase their flights, thus increasing customer satisfaction and gaining a competitive 
-advantage. 
-⚫ Airlines: It allows airlines to be dynamic with their fare pricing relative to market conditions. In 
-this way, they can help maximize their profits while remaining competitive with other airlines. 
-⚫ Data Scientists and Researchers: It gives the ability to extend research into dynamic pricing 
-models, demand forecasting, and market behavior analysis as a whole. 
-⚫ E-commerce / Online Travel Platforms: It improves pricing algorithms which online ticketing 
-platforms use, which ultimately gives the customer better deals.
+This project introduces a **Scalable Dynamic Pricing Model** using **XGBoost**, with two configurations:
+- **Standalone (Scikit-learn + Pandas)**
+- **Distributed (PySpark MLlib)**
 
-![image](https://github.com/user-attachments/assets/ad86e426-3d48-4b4c-a2ce-920d5d676d3c)
+Key results:
+-  XGBoost (Pandas): **R² = 0.9786**
+-  XGBoost (PySpark): **R² = 0.9954**, improved scalability and reduced computation time
 
+In addition, an **Integer Pricing Module** is developed for real-world deployment by adjusting prices based on seasonality and competition.
 
-The dataset used is available on Kaggle:
-[Flight Price Prediction](https://www.kaggle.com/datasets/shubhambathwal/flight-price-prediction)
+---
 
+## Importance of Flight Price Prediction
 
-# Dataset  description 
- 
-The dataset  contains the full flight price , detailing multiple attributes which contribute to the fare 
-structure. The dataset categorized into three variants follows: 
- 
-⚫ Economy Dataset - An Economy dataset whose flight details and ticket prices are made for 
-Economy class passengers. 
-⚫ Business Dataset - Business dataset whose flight details and ticket prices are made available for 
-Business class passengers. 
-⚫ Combined Dataset - Economically and Business class together so as to have a comprehensive look 
-at the pricing strategies.
+-  **Passengers**: Helps find the best time to book
+-  **Travel Agencies**: Boost customer trust with better recommendations
+-  **Airlines**: Optimize revenue while staying competitive
+-  **Data Scientists**: Extend research on demand forecasting
+-  **E-commerce / OTAs**: Enhance user retention with smarter pricing
+
+---
+
+## Repository Structure
+├──EDA.ipynb  # Exploratory Data Analysis with visual insights
+├── Normal_GradientBoosting.ipynb   # Pandas + Scikit-learn pipeline
+├── PySpark_GradientBoosting.ipynb  # PySpark MLlib pipeline
+├── README.md
 
 
-# Attributes of the dataset: 
- 
-⚫ S.No: A number that serially represents a record. 
-⚫ Airline: Name of the flying airline (for example-IndiGo, Air India, Vistara). 
-⚫ Flight: Numbers or identifiers assigned to a travel journey. 
-⚫ Source_City: The name of the city that serves as the origin point for flights. 
-⚫ Departure_Time: Leaving time fixed for a flight; classifications: Morning, Afternoon, Evening, Late Night. 
-⚫ Stops: Number of haltings on the journey (Non Stop, 1 Stop, 2+ Stops). 
-⚫ Arrival_Time: The scheduled time at which the flight is scheduled to arrive at the destination. 
-⚫ Destination: The city where the flight goes to arrive. 
-⚫ Class: Type of travel class offered, either Economy or Business. 
-⚫ Duration: Total flying time (in hours). 
-⚫ Days_Left: Number of days left for departure, at the time when a ticket is bought. 
-⚫ Price: The final ticket price, which is the target variable for predictive modeling.
+---
+
+##  Dataset Link
+
+[📂 Kaggle: Flight Price Prediction](https://www.kaggle.com/datasets/shubhambathwal/flight-price-prediction)
+
+---
+
+##  Dataset Description
+
+The dataset contains details of both **Economy** and **Business** flight tickets with multiple predictive features.
+
+### Variants:
+- Economy
+- Business
+- Combined (Economy + Business)
+
+---
+
+## Attributes of the Dataset
+
+| Attribute       | Description |
+|----------------|-------------|
+| S.No           | Unique identifier |
+| Airline        | Name of airline (e.g., IndiGo, Air India) |
+| Flight         | Flight number/code |
+| Source_City    | Origin city |
+| Departure_Time | Time of day (Morning, Afternoon, etc.) |
+| Stops          | No. of stops (Non Stop, 1 Stop, etc.) |
+| Arrival_Time   | Arrival time category |
+| Destination    | Destination city |
+| Class          | Travel class: Economy or Business |
+| Duration       | Flight duration |
+| Days_Left      | Days left before departure |
+| Price          | Target variable (ticket price) |
+
+---
+
+##  Data Processing and Transformation
+
+- Missing Value Treatment
+- Categorical Encoding
+- Log Transformation
+- Feature Engineering
+- Train/Test Split
+
+---
+
+## ⚙Experimentation Setup
+
+| Component      | Spec                      |
+|----------------|---------------------------|
+| CPU            | Intel Core i7 Ultra       |
+| RAM            | 16 GB                     |
+| GPU            | Intel ARC                 |
+| Storage        | SSD                       |
+| OS             | Windows 11                |
+| Language       | Python 3.8+               |
+| IDE            | Jupyter & Kaggle Notebooks|
+
+---
+
+## Experimental Procedure
+
+- 🔹 Load and clean dataset
+- 🔹 Apply preprocessing steps
+- 🔹 Train and tune Gradient Boosting models
+- 🔹 Compare performance: Scikit-learn vs PySpark
+- 🔹 Evaluate with R² and other error metrics
+
+---
+
+## Model Performance Metrics
+
+| Model                | R² Score |
+|----------------------|----------|
+| Random Forest        | 0.728    |
+| XGBoost (Scikit-learn) | 0.9786   |
+| XGBoost (PySpark)    | **0.9954** |
 
 
-# Data Processing and Transformation
 
-  - Missing Value Treatment
-  - Categorical Encoding
-  - Numerical Feature Normalization
-  - Log Transformation
-  - Feature Engineering
-  - Data Splitting
+---
+
+## Conclusion
+
+The PySpark-based XGBoost model:
+- Achieves **highest accuracy**
+- Scales better for large datasets
+- Offers real-time adaptability for airline pricing strategies
+
+> Future work: Real-time stream integration + Deep Learning Hybrid Models
+
+---
+
+## Repo Structure
+
+ Airline-Ticket-Price-Prediction
+   - EDA.ipynb                       # Exploratory Data Analysis with visual insights
+   - Normal_GradientBoosting.ipynb  # Scikit-learn Gradient Boosting pipeline
+   - PySpark_GradientBoosting.ipynb # PySpark MLlib pipeline for distributed training
 
 
-# Experimentation Setup
+##  Contact
 
- - CPU : Intel Core i7 Ultra
- - RAM : 16GB
- - GPU : Intel ARC
- - Storage : SSD to enhance quickness
- - OS : Windows 11
- - Prog Language : Python 3.8+
- - IDE : Jupyter notebooks and kaggle notebooks
+For queries or collaboration:
+- GitHub: [@Sumanth0019](https://github.com/Sumanth0019)
+- Email: [sumanthreddy202039401@gmail.com]
+
+---
 
 
-# Experimental Procedure: 
- 
-⚫ The dataset was loaded and preprocessed to ascertain data quality. 
-⚫ A Gradient Boosting Method (GBM) was trained and tuned for hyperparameters to achieve the 
-best prediction accuracy. 
-⚫ The comparison of the XGBoost implementation with and without PySpark was made to analyze 
-the scalability and performance differences.  
-⚫ Lastly, corresponding predictions were generated against actual prices using different error metrics 
-for evaluation. 
-⚫ This experimental setup will ensure a solid and reproducible avenue toward the dynamic pricing 
-prediction using machine learning for fare forecasting. 
 
-# Model Performance metrics
+Would you like help turning this into a live portfolio or website with GitHub Pages or Streamlit?
 
-![image](https://github.com/user-attachments/assets/a69dc95e-5396-4f87-a0b6-0f01d1392063)
-
-# Conclusion
- 
-The model utilizing PySpark and XGBoost is thus the best among the rest when it comes 
-to accuracy and computational efficiency that fit better for modern-day airline revenue management 
-systems. Future directions would look towards deep learning-based hybrid models and real-time stream 
-data integration to step up response and prediction performance
+Let me know and I can generate that too!
